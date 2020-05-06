@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+    <title>BTP Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css' ) }}" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css' ) }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/github-light.css' ) }}" media="screen">
+{% endblock %}
+
+
+{% block body %} 
+<section class="page-header">
+    <h2 class="project-name">Akhil Chandra & Yagyansh Bhatia</h1>
+    <h2 class="project-tagline">BTP, supervised by Professor Amit Awekar</h2>
+  </section>
+
+  <section class="main-content">
+    <h2>
+<a id="about-me" class="anchor" href="#about-me" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About This Project</h2>
+
+<p>This is where we explain about are BTP project</p>
+
+
+{% endblock %}
