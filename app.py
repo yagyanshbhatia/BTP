@@ -18,12 +18,24 @@ codes = [
 def index():
     return render_template("index.html")
 
+def update_codes(query):
+    # Note For Akhil Chandra
+    # This is where you update the rank list : codes 
+    # after the search is done, query is the search string. 
+    global codes
+    codes.append({
+        'method_name':query,
+        'method_code':'int main()'
+    })
+    return codes
+
 @app.route('/demo', methods=['GET','POST'])
 def demo():
+    global codes
     if request.method == "POST":
         query = request.form["query"]
-        print(query)
-    return render_template("demo.html", title = "demo", codes = codes, len = len(codes))
+        codes = update_codes(query)
+    return render_template("demo.html", title = "demo", code = codes, len = len(codes))
 
 if __name__=="__main__":
     app.run(debug=True)
