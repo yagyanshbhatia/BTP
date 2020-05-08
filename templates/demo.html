@@ -50,13 +50,10 @@
         Results
     </h2>
 
-    <div class="card">
-        <div class="container">
-        <h4><b>method_name</b></h4>
-        <p>sample code snippet here!</p>
-        { % for i in range(10): % }
-        {%= i %}*{%= i %} : <b> {%= i*i %} </b>
-        </div>
-    </div>
+    {%for i in range(0, len)%} 
+  
+        <h3>{{codes[i].method_name}}</h3> 
+        <pre><code>{{codes[i].method_code}}</code></pre>
+    {%endfor%} 
 
 {% endblock body %}

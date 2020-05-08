@@ -6,7 +6,7 @@ app.config['SECRET_KEY'] = "abcdefgh"
 codes = [
     {
         'method_name' : 'trial 1',
-        'method_code' : 'print("hello there!")'
+        'method_code' : 'code here!'
     }, 
     {
         'method_name' : 'trial 2',
@@ -23,7 +23,7 @@ def demo():
     if request.method == "POST":
         query = request.form["query"]
         print(query)
-    return render_template("demo.html", title = "demo", codes = codes)
+    return render_template("demo.html", title = "demo", codes = codes, len = len(codes))
 
 if __name__=="__main__":
     app.run(debug=True)
