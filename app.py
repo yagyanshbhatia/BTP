@@ -42,7 +42,7 @@ def update_codes(query):
 
     for elem in x_dict["hits"]["hits"]:
         output = "relavence_score: \n \t" + str(elem['_score']) + '\n'
-        output = "document_id: \n \t" + str(elem['_index']) + str(elem['_type']) + str(elem['_id']) + '\n'
+        output = output + "document_id: \n \t" + str(elem['_index']) + str(elem['_type']) + str(elem['_id']) + '\n'
         output = output + "code: \n \t" + str(elem['_source']["original_string"]) + '\n'
         codes.append({
             'method_name':str(rank),
