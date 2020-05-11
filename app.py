@@ -25,6 +25,7 @@ def update_codes(query):
     # This is where you update the rank list : codes 
     # after the search is done, query is the search string. 
     global codes
+    codes = []
     url = "http://localhost:9200/_search?pretty"
     query_string = str(query) #in case the query isnt a string, who knows :)
     #use the 'headers' parameter to set the HTTP headers:
@@ -50,7 +51,7 @@ def update_codes(query):
 	        output = output + "document_id: \n \t" + str(elem['_index']) + str(elem['_type']) + str(elem['_id']) + '\n'
 	        output = output + "code: \n \t" + str(elem['_source']["original_string"]) + '\n'
 	        codes.append({
-	            'method_name':str(query)+str(rank),
+	            'method_name':str(query)+' '+str(rank),
 	            'method_code':output
 	        })
 	        rank = rank	+ 1
@@ -62,6 +63,8 @@ def demo():
     if request.method == "POST":
         query = request.form["query"]
         codes = update_codes(query)
+    else:
+        codes = []
     return render_template("demo.html", title = "demo", code = codes, len = len(codes))
 
 if __name__=="__main__":
